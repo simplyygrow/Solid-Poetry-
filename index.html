@@ -3,912 +3,343 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solid Poetry — Marketing Proposal 2025</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Solid Poetry™ — Marketing Proposal 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --stone: #1a1a18;
-    --marble: #f5f2ee;
-    --cream: #ede8e0;
-    --gold: #b8974a;
-    --gold-light: #d4b97a;
-    --warm-gray: #8a8478;
-    --off-white: #faf8f5;
-    --dark-olive: #2a2a22;
-    --text-dark: #1c1c1a;
-    --text-mid: #5a5850;
-  }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink:      #0e0d0b;
+  --ink2:     #1c1a16;
+  --parchment:#f4efe6;
+  --cream:    #ede6d8;
+  --sand:     #c8b99a;
+  --gold:     #a8874a;
+  --gold2:    #c9a96e;
+  --gold3:    #e8cfa0;
+  --ash:      #7a7366;
+  --mist:     #d4cec4;
+  --white:    #faf7f2;
+  --dark-card:#171612;
+}
 
-  html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ink);
+  color: var(--parchment);
+  overflow-x: hidden;
+  cursor: none;
+}
 
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--stone);
-    color: var(--marble);
-    overflow-x: hidden;
-  }
+/* CURSOR */
+#cur { width:8px; height:8px; background:var(--gold2); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .2s,height .2s; mix-blend-mode:exclusion; }
+#cur-ring { width:40px; height:40px; border:1px solid rgba(200,185,154,.5); border-radius:50%; position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); }
 
-  /* ── CURSOR ── */
-  .cursor {
-    width: 10px; height: 10px;
-    background: var(--gold);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.2s ease;
-    mix-blend-mode: difference;
-  }
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transition: all 0.12s ease;
-    opacity: 0.6;
-  }
+/* NOISE */
+body::after {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:9990;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.6;
+}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 60px;
-    background: linear-gradient(to bottom, rgba(26,26,24,0.95), transparent);
-    backdrop-filter: blur(4px);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .nav-links {
-    display: flex; gap: 40px;
-    list-style: none;
-  }
-  .nav-links a {
-    color: var(--marble);
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.7;
-    transition: opacity 0.3s, color 0.3s;
-  }
-  .nav-links a:hover { opacity: 1; color: var(--gold); }
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background:var(--ink); }
+::-webkit-scrollbar-thumb { background:var(--gold); }
 
-  /* ── HERO ── */
-  .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(184,151,74,0.08), transparent),
-      radial-gradient(ellipse 50% 60% at 20% 80%, rgba(184,151,74,0.05), transparent),
-      linear-gradient(160deg, #1a1a18 0%, #22221e 40%, #1a1a16 100%);
-  }
-  .hero-grain {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.4;
-    pointer-events: none;
-  }
-  .hero-lines {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(184,151,74,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(184,151,74,0.04) 1px, transparent 1px);
-    background-size: 80px 80px;
-  }
-  .hero-tag {
-    font-size: 10px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0;
-    animation: fadeUp 1s 0.3s forwards;
-    margin-bottom: 32px;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 8vw, 110px);
-    font-weight: 300;
-    line-height: 0.95;
-    opacity: 0;
-    animation: fadeUp 1s 0.5s forwards;
-    position: relative;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-  .hero-sub {
-    margin-top: 28px;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    opacity: 0;
-    animation: fadeUp 1s 0.8s forwards;
-  }
-  .hero-divider {
-    width: 1px; height: 60px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    margin: 40px auto 0;
-    opacity: 0;
-    animation: fadeUp 1s 1s forwards;
-  }
-  .hero-scroll {
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-top: 16px;
-    opacity: 0;
-    animation: fadeUp 1s 1.1s forwards;
-  }
-  .hero-badge {
-    position: absolute;
-    bottom: 60px;
-    right: 60px;
-    width: 100px; height: 100px;
-    border: 1px solid rgba(184,151,74,0.3);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: spin 20s linear infinite;
-  }
-  .hero-badge span {
-    font-size: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-align: center;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
+.display { font-family:'Playfair Display',serif; }
+.eyebrow {
+  font-size:.63rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--gold2); font-weight:400; display:flex; align-items:center; gap:1rem;
+}
+.eyebrow::before { content:''; display:block; width:2rem; height:1px; background:var(--gold2); flex-shrink:0; }
 
-  /* ── SECTION COMMONS ── */
-  section {
-    position: relative;
-    overflow: hidden;
-  }
-  .section-label {
-    font-size: 9px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .section-label::before {
-    content: '';
-    width: 30px; height: 1px;
-    background: var(--gold);
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
-    line-height: 1.1;
-  }
-  .section-title em { font-style: italic; color: var(--gold-light); }
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1.5rem 4rem;
+  background:linear-gradient(to bottom,rgba(14,13,11,.92),transparent);
+  backdrop-filter:blur(2px);
+  transition:background .4s;
+}
+.nav-logo { font-family:'Playfair Display',serif; font-size:1.1rem; letter-spacing:.15em; color:var(--gold2); font-style:italic; }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a { font-size:.63rem; letter-spacing:.2em; text-transform:uppercase; color:var(--mist); text-decoration:none; opacity:.7; transition:opacity .3s,color .3s; }
+.nav-links a:hover { opacity:1; color:var(--gold2); }
+.nav-pill { padding:.5rem 1.4rem; border:1px solid var(--gold); color:var(--gold); font-size:.63rem; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; transition:all .3s; }
+.nav-pill:hover { background:var(--gold); color:var(--ink); }
 
-  /* ── INTRO SECTION ── */
-  .intro {
-    background: var(--stone);
-    padding: 120px 60px;
-  }
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: center;
-  }
-  .intro-left {}
-  .intro-body {
-    margin-top: 32px;
-    font-size: 14px;
-    line-height: 2;
-    color: var(--warm-gray);
-    font-weight: 300;
-  }
-  .intro-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 48px;
-  }
-  .stat-box {
-    background: rgba(184,151,74,0.06);
-    border: 1px solid rgba(184,151,74,0.15);
-    padding: 28px 20px;
-    text-align: center;
-    transition: background 0.3s;
-  }
-  .stat-box:hover { background: rgba(184,151,74,0.1); }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    color: var(--gold-light);
-    display: block;
-  }
-  .stat-label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-top: 6px;
-    display: block;
-  }
-  .intro-right {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 2px;
-  }
-  .intro-card {
-    background: var(--dark-olive);
-    border: 1px solid rgba(184,151,74,0.1);
-    padding: 36px;
-  }
-  .intro-card h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--gold-light);
-    margin-bottom: 12px;
-  }
-  .intro-card p {
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--warm-gray);
-    font-weight: 300;
-  }
+/* HERO */
+.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 4rem 5rem; position:relative; overflow:hidden; }
+.hero-canvas {
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 65% 40%,rgba(168,135,74,.12),transparent 60%),
+    radial-gradient(ellipse 50% 80% at 10% 100%,rgba(168,135,74,.07),transparent 50%),
+    linear-gradient(175deg,#111009 0%,#0e0d0b 50%,#13120e 100%);
+}
+.hero-lines { position:absolute; inset:0; overflow:hidden; }
+.hero-lines span { position:absolute; left:0; right:0; height:1px; background:linear-gradient(to right,transparent,rgba(200,185,154,.06),transparent); animation:driftLine 8s ease-in-out infinite; }
+.hero-lines span:nth-child(1){top:18%;animation-delay:0s}
+.hero-lines span:nth-child(2){top:35%;animation-delay:1.5s}
+.hero-lines span:nth-child(3){top:52%;animation-delay:3s}
+.hero-lines span:nth-child(4){top:70%;animation-delay:4.5s}
+.hero-lines span:nth-child(5){top:85%;animation-delay:6s}
+@keyframes driftLine{0%,100%{opacity:.3;transform:scaleX(.6)}50%{opacity:1;transform:scaleX(1)}}
 
-  /* ── PRODUCTS ── */
-  .products {
-    background: var(--dark-olive);
-    padding: 100px 60px;
-  }
-  .products-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 70px;
-  }
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .product-card {
-    background: var(--stone);
-    border: 1px solid rgba(184,151,74,0.08);
-    padding: 50px 36px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.4s;
-    cursor: default;
-  }
-  .product-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%; height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s;
-  }
-  .product-card:hover::before { transform: scaleX(1); }
-  .product-card:hover { border-color: rgba(184,151,74,0.3); }
-  .product-icon {
-    width: 48px; height: 48px;
-    border: 1px solid rgba(184,151,74,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 28px;
-    font-size: 20px;
-  }
-  .product-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    color: var(--marble);
-    margin-bottom: 12px;
-  }
-  .product-desc {
-    font-size: 12px;
-    line-height: 1.9;
-    color: var(--warm-gray);
-    font-weight: 300;
-  }
-  .product-num {
-    position: absolute;
-    top: 28px; right: 28px;
-    font-size: 11px;
-    color: rgba(184,151,74,0.3);
-    font-weight: 600;
-  }
+.hero-content { position:relative; z-index:2; max-width:900px; }
+.hero-kicker { font-size:.63rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold2); margin-bottom:2rem; opacity:0; animation:revealUp .9s .4s forwards; }
+.hero-h1 { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,9vw,8rem); font-weight:400; line-height:.95; opacity:0; animation:revealUp 1s .6s forwards; }
+.hero-h1 em { font-style:italic; color:var(--gold2); }
+.hero-h1 .outline { -webkit-text-stroke:1px rgba(200,185,154,.35); color:transparent; }
+.hero-meta { margin-top:2.5rem; display:flex; align-items:center; gap:3rem; opacity:0; animation:revealUp .9s .9s forwards; }
+.hero-meta-item { font-size:.7rem; color:var(--ash); line-height:1.8; }
+.hero-meta-item strong { display:block; color:var(--parchment); font-size:.85rem; font-weight:400; }
+.hero-vline { width:1px; height:40px; background:rgba(200,185,154,.2); }
+.hero-scroll { position:absolute; bottom:5rem; right:4rem; z-index:2; display:flex; flex-direction:column; align-items:center; gap:.75rem; opacity:0; animation:revealUp .9s 1.2s forwards; }
+.hero-scroll span { font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ash); }
+.scroll-line { width:1px; height:50px; background:linear-gradient(to bottom,var(--gold2),transparent); animation:scrollPulse 2s infinite; }
+@keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes revealUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-  /* ── COMPETITORS ── */
-  .competitors {
-    background: var(--stone);
-    padding: 100px 60px;
-  }
-  .comp-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    max-width: 1200px;
-    margin: 60px auto 0;
-  }
-  .comp-card {
-    background: var(--dark-olive);
-    border: 1px solid rgba(184,151,74,0.1);
-    padding: 40px 32px;
-  }
-  .comp-handle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    color: var(--gold-light);
-    margin-bottom: 6px;
-  }
-  .comp-niche {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 24px;
-  }
-  .comp-metrics {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .comp-metric {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: 12px;
-  }
-  .comp-metric-label { color: var(--warm-gray); }
-  .comp-metric-val { color: var(--marble); font-weight: 500; }
-  .comp-gap {
-    margin-top: 24px;
-    padding: 16px;
-    background: rgba(184,151,74,0.06);
-    border-left: 2px solid var(--gold);
-    font-size: 12px;
-    color: var(--cream);
-    line-height: 1.7;
-    font-weight: 300;
-  }
+/* SECTION */
+.section { padding:7rem 4rem; position:relative; }
+.section-inner { max-width:1300px; margin:0 auto; }
 
-  /* ── PLANS ── */
-  .plans {
-    background: var(--off-white);
-    color: var(--text-dark);
-    padding: 100px 60px;
-  }
-  .plans .section-label { color: var(--gold); }
-  .plans .section-title { color: var(--text-dark); }
-  .plans-header { max-width: 600px; margin-bottom: 70px; }
-  .plans-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3px;
-    max-width: 1200px;
-  }
+/* INTRO */
+.intro { background:var(--ink2); }
+.intro-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:6rem; align-items:start; }
+.intro-text p { font-size:.93rem; line-height:2.1; color:var(--ash); font-weight:300; margin-top:1.5rem; }
+.intro-text p+p { margin-top:1rem; }
+.intro-cards { display:grid; gap:2px; }
+.icard { background:var(--dark-card); padding:2rem 2.2rem; border-left:2px solid transparent; transition:border-color .4s,background .4s; position:relative; overflow:hidden; }
+.icard::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(168,135,74,.05),transparent 60%); opacity:0; transition:opacity .4s; }
+.icard:hover { border-left-color:var(--gold); background:#1a1915; }
+.icard:hover::before { opacity:1; }
+.icard-label { font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold2); margin-bottom:.75rem; }
+.icard-title { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; margin-bottom:.75rem; }
+.icard-body { font-size:.8rem; line-height:1.95; color:var(--ash); font-weight:300; }
+.stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:3rem; }
+.stat { background:var(--dark-card); padding:2rem 1.5rem; text-align:center; position:relative; overflow:hidden; }
+.stat::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(to right,transparent,var(--gold),transparent); transform:scaleX(0); transition:transform .5s; }
+.stat:hover::after { transform:scaleX(1); }
+.stat-n { font-family:'Playfair Display',serif; font-size:3rem; color:var(--gold2); line-height:1; display:block; }
+.stat-l { font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ash); margin-top:.4rem; display:block; }
 
-  /* PLAN CARD */
-  .plan-card {
-    background: #fff;
-    border: 1px solid rgba(26,26,24,0.1);
-    padding: 60px 50px;
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow 0.4s;
-  }
-  .plan-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
-  .plan-card.featured {
-    background: var(--stone);
-    color: var(--marble);
-    border-color: var(--gold);
-  }
-  .plan-badge {
-    position: absolute;
-    top: 0; right: 0;
-    background: var(--gold);
-    color: var(--stone);
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 8px 18px;
-    font-weight: 600;
-  }
-  .plan-tier {
-    font-size: 9px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-  }
-  .plan-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 72px;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--text-dark);
-    margin-bottom: 6px;
-  }
-  .plan-card.featured .plan-price { color: var(--marble); }
-  .plan-price sup {
-    font-size: 28px;
-    vertical-align: top;
-    margin-top: 14px;
-    display: inline-block;
-  }
-  .plan-currency {
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: var(--warm-gray);
-    margin-bottom: 36px;
-    font-weight: 300;
-  }
-  .plan-divider {
-    width: 100%; height: 1px;
-    background: rgba(26,26,24,0.08);
-    margin-bottom: 36px;
-  }
-  .plan-card.featured .plan-divider { background: rgba(255,255,255,0.1); }
-  .plan-section-title {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 20px;
-    margin-top: 28px;
-  }
-  .plan-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-  .plan-items li {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-  .plan-card.featured .plan-items li { color: var(--cream); }
-  .plan-items li::before {
-    content: '◆';
-    color: var(--gold);
-    font-size: 8px;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
-  .plan-highlight {
-    background: rgba(184,151,74,0.08);
-    border: 1px solid rgba(184,151,74,0.2);
-    padding: 20px 24px;
-    margin-top: 32px;
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--text-mid);
-    font-weight: 300;
-  }
-  .plan-card.featured .plan-highlight {
-    background: rgba(184,151,74,0.12);
-    color: var(--cream);
-  }
-  .plan-cta {
-    display: block;
-    margin-top: 40px;
-    padding: 18px 36px;
-    background: var(--stone);
-    color: var(--marble);
-    text-align: center;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border: 1px solid var(--stone);
-    transition: all 0.3s;
-    cursor: pointer;
-  }
-  .plan-cta:hover { background: transparent; color: var(--stone); }
-  .plan-card.featured .plan-cta {
-    background: var(--gold);
-    color: var(--stone);
-    border-color: var(--gold);
-  }
-  .plan-card.featured .plan-cta:hover {
-    background: transparent;
-    color: var(--gold);
-  }
+/* PRODUCTS */
+.products { background:var(--ink); }
+.products-header { text-align:center; max-width:550px; margin:0 auto 5rem; }
+.products-header h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; line-height:1.15; margin-top:1rem; }
+.products-header h2 em { font-style:italic; color:var(--gold2); }
+.prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.prod-card { background:var(--dark-card); padding:3rem 2.5rem; position:relative; overflow:hidden; transition:transform .4s; }
+.prod-card:hover { transform:translateY(-4px); }
+.prod-card::after { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(135deg,rgba(168,135,74,.07),transparent 70%); opacity:0; transition:opacity .4s; }
+.prod-card:hover::after { opacity:1; }
+.prod-num { position:absolute; top:1.5rem; right:1.5rem; font-size:.63rem; color:rgba(200,185,154,.2); letter-spacing:.1em; font-weight:500; }
+.prod-icon { width:52px; height:52px; border:1px solid rgba(168,135,74,.25); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:2rem; position:relative; z-index:1; }
+.prod-icon::before { content:''; position:absolute; inset:-4px; border:1px dashed rgba(168,135,74,.12); }
+.prod-name { font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:400; margin-bottom:.75rem; position:relative; z-index:1; }
+.prod-desc { font-size:.79rem; line-height:1.95; color:var(--ash); font-weight:300; position:relative; z-index:1; }
+.prod-card.accent { background:linear-gradient(135deg,#1a180f,#1c1a12); border:1px solid rgba(168,135,74,.2); }
 
-  /* ── DELIVERABLES TIMELINE ── */
-  .timeline {
-    background: var(--stone);
-    padding: 100px 60px;
-  }
-  .timeline-header { margin-bottom: 70px; }
-  .timeline-grid {
-    max-width: 900px;
-    position: relative;
-  }
-  .timeline-grid::before {
-    content: '';
-    position: absolute;
-    left: 28px;
-    top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--gold), rgba(184,151,74,0.1));
-  }
-  .timeline-item {
-    display: flex;
-    gap: 50px;
-    margin-bottom: 50px;
-    align-items: flex-start;
-  }
-  .timeline-dot {
-    width: 57px;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  .timeline-dot span {
-    width: 14px; height: 14px;
-    background: var(--gold);
-    border-radius: 50%;
-    border: 3px solid var(--stone);
-    display: block;
-    position: relative;
-    z-index: 1;
-    margin-top: 4px;
-  }
-  .timeline-content {
-    background: var(--dark-olive);
-    border: 1px solid rgba(184,151,74,0.1);
-    padding: 28px 32px;
-    flex: 1;
-    transition: border-color 0.3s;
-  }
-  .timeline-content:hover { border-color: rgba(184,151,74,0.3); }
-  .timeline-week {
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .timeline-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-  .timeline-desc {
-    font-size: 12px;
-    line-height: 1.9;
-    color: var(--warm-gray);
-    font-weight: 300;
-  }
+/* COMPETITORS */
+.competitors { background:var(--ink2); }
+.comp-intro { max-width:700px; margin-bottom:4rem; }
+.comp-intro h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; line-height:1.15; margin-top:1rem; }
+.comp-intro h2 em { font-style:italic; color:var(--gold2); }
+.comp-intro p { font-size:.88rem; line-height:2.1; color:var(--ash); font-weight:300; margin-top:1.25rem; }
+.comp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-bottom:4rem; }
+.comp-card { background:var(--dark-card); padding:2.5rem 2rem; border-top:2px solid rgba(200,185,154,.08); transition:border-color .4s; }
+.comp-card:hover { border-top-color:var(--gold); }
+.comp-handle { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:400; margin-bottom:.25rem; }
+.comp-type { font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ash); margin-bottom:1.75rem; }
+.comp-row { display:flex; justify-content:space-between; padding:.65rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.77rem; }
+.comp-row:last-of-type { border-bottom:none; }
+.comp-row-k { color:var(--ash); font-weight:300; }
+.comp-row-v { color:var(--parchment); font-weight:400; }
+.comp-gap-box { margin-top:1.5rem; padding:1.1rem 1.2rem; background:rgba(168,135,74,.07); border-left:2px solid var(--gold); font-size:.77rem; line-height:1.85; color:var(--cream); font-weight:300; }
+.comp-gap-box strong { color:var(--gold2); font-weight:500; }
+.big-table-wrap { background:var(--dark-card); padding:3rem; border:1px solid rgba(200,185,154,.08); }
+.big-table-title { font-family:'Playfair Display',serif; font-size:1.55rem; margin-bottom:2rem; }
+.big-table-title em { font-style:italic; color:var(--gold2); }
+.btable { width:100%; border-collapse:collapse; font-size:.81rem; }
+.btable th { padding:1rem 1.25rem; text-align:left; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ash); font-weight:400; border-bottom:1px solid rgba(200,185,154,.1); }
+.btable th.hl { color:var(--gold2); font-size:.73rem; }
+.btable td { padding:.9rem 1.25rem; border-bottom:1px solid rgba(255,255,255,.03); color:var(--ash); font-weight:300; }
+.btable tr:hover td { background:rgba(168,135,74,.03); }
+.btable .ck { color:var(--gold2); font-size:1rem; }
+.btable .xx { color:rgba(200,185,154,.2); font-size:1rem; }
 
-  /* ── WHY US ── */
-  .why {
-    background: var(--dark-olive);
-    padding: 100px 60px;
-  }
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    max-width: 1200px;
-    margin: 60px auto 0;
-  }
-  .why-card {
-    background: var(--stone);
-    padding: 44px 32px;
-    border: 1px solid rgba(184,151,74,0.08);
-    transition: border-color 0.3s;
-  }
-  .why-card:hover { border-color: rgba(184,151,74,0.3); }
-  .why-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 60px;
-    color: rgba(184,151,74,0.15);
-    line-height: 1;
-    margin-bottom: 20px;
-  }
-  .why-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    margin-bottom: 14px;
-    color: var(--marble);
-  }
-  .why-desc {
-    font-size: 12px;
-    line-height: 1.9;
-    color: var(--warm-gray);
-    font-weight: 300;
-  }
+/* STRATEGY */
+.strategy { background:var(--ink); }
+.strategy-split { display:grid; grid-template-columns:1fr 1fr; gap:6rem; }
+.strategy-left h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; line-height:1.1; margin-top:1rem; }
+.strategy-left h2 em { font-style:italic; color:var(--gold2); }
+.strategy-left p { font-size:.88rem; line-height:2.1; color:var(--ash); font-weight:300; margin-top:1.5rem; }
+.quote-box { margin-top:2.5rem; padding:2rem; background:var(--dark-card); border-left:2px solid var(--gold); }
+.quote-box p { font-family:'Playfair Display',serif; font-size:1.2rem; font-style:italic; line-height:1.65; color:var(--parchment); }
+.quote-box span { font-size:.65rem; color:var(--ash); margin-top:.75rem; display:block; letter-spacing:.1em; text-transform:uppercase; }
+.strategy-blocks { display:flex; flex-direction:column; gap:2px; }
+.str-block { background:var(--dark-card); padding:2rem 2.2rem; border-left:2px solid transparent; transition:border-color .4s; }
+.str-block:hover { border-left-color:var(--gold); }
+.str-block-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:.75rem; }
+.str-block-name { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:400; }
+.str-block-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); padding:.25rem .75rem; border:1px solid rgba(168,135,74,.3); }
+.str-block-body { font-size:.79rem; line-height:1.95; color:var(--ash); font-weight:300; }
+.str-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+.str-tag { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ash); padding:.3rem .8rem; background:rgba(200,185,154,.06); border:1px solid rgba(200,185,154,.1); }
 
-  /* ── STRATEGY SECTION ── */
-  .strategy {
-    background: var(--off-white);
-    color: var(--text-dark);
-    padding: 100px 60px;
-  }
-  .strategy .section-label { color: var(--gold); }
-  .strategy .section-title { color: var(--text-dark); }
-  .strategy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 60px auto 0;
-  }
-  .strategy-block {
-    padding: 40px;
-    background: #fff;
-    border: 1px solid rgba(26,26,24,0.08);
-    border-top: 3px solid var(--gold);
-  }
-  .strategy-block h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-  }
-  .strategy-block p {
-    font-size: 13px;
-    line-height: 2;
-    color: var(--text-mid);
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-  .strategy-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .tag {
-    padding: 6px 14px;
-    background: rgba(184,151,74,0.08);
-    border: 1px solid rgba(184,151,74,0.2);
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-mid);
-  }
+/* TIMELINE */
+.timeline { background:var(--ink2); }
+.timeline h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; line-height:1.15; margin-top:1rem; }
+.timeline h2 em { font-style:italic; color:var(--gold2); }
+.tl-track { max-width:900px; margin:4rem auto 0; position:relative; }
+.tl-track::before { content:''; position:absolute; left:1.5rem; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--gold),rgba(168,135,74,.1)); }
+.tl-item { display:flex; gap:3.5rem; margin-bottom:2.5rem; }
+.tl-dot-wrap { flex-shrink:0; width:3rem; display:flex; justify-content:center; padding-top:.3rem; }
+.tl-dot { width:14px; height:14px; background:var(--dark-card); border:2px solid var(--gold); border-radius:50%; position:relative; z-index:1; flex-shrink:0; transition:background .3s; }
+.tl-item:hover .tl-dot { background:var(--gold); }
+.tl-box { flex:1; background:var(--dark-card); padding:2rem 2.5rem; border:1px solid rgba(200,185,154,.06); transition:border-color .4s; }
+.tl-item:hover .tl-box { border-color:rgba(168,135,74,.25); }
+.tl-week { font-size:.58rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold2); margin-bottom:.5rem; }
+.tl-title { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; margin-bottom:.75rem; }
+.tl-body { font-size:.79rem; line-height:2; color:var(--ash); font-weight:300; }
 
-  /* ── ROI ── */
-  .roi {
-    background: var(--stone);
-    padding: 100px 60px;
-    text-align: center;
-  }
-  .roi-inner { max-width: 900px; margin: 0 auto; }
-  .roi-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 5vw, 70px);
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-  .roi-title em { font-style: italic; color: var(--gold-light); }
-  .roi-sub {
-    font-size: 13px;
-    line-height: 2;
-    color: var(--warm-gray);
-    max-width: 600px;
-    margin: 0 auto 60px;
-    font-weight: 300;
-  }
-  .roi-metrics {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-  }
-  .roi-metric {
-    background: var(--dark-olive);
-    border: 1px solid rgba(184,151,74,0.1);
-    padding: 36px 20px;
-  }
-  .roi-metric-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px;
-    color: var(--gold-light);
-    display: block;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .roi-metric-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-  }
+/* ROI */
+.roi { background:var(--ink); text-align:center; }
+.roi-inner { max-width:900px; margin:0 auto; }
+.roi h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,4.5rem); font-weight:400; line-height:1.1; margin-top:1rem; }
+.roi h2 em { font-style:italic; color:var(--gold2); }
+.roi-sub { font-size:.88rem; color:var(--ash); line-height:2.1; max-width:580px; margin:1.5rem auto 4rem; font-weight:300; }
+.roi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.roi-box { background:var(--dark-card); padding:3rem 1.5rem; position:relative; overflow:hidden; }
+.roi-box::before { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(to right,transparent,var(--gold2),transparent); transform:scaleX(0); transition:transform .5s; }
+.roi-box:hover::before { transform:scaleX(1); }
+.roi-n { font-family:'Playfair Display',serif; font-size:3.5rem; color:var(--gold2); line-height:1; display:block; }
+.roi-l { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ash); margin-top:.75rem; display:block; line-height:1.6; }
 
-  /* ── CTA ── */
-  .cta-section {
-    background: var(--gold);
-    padding: 100px 60px;
-    text-align: center;
-    color: var(--stone);
-  }
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 5vw, 72px);
-    font-weight: 300;
-    margin-bottom: 20px;
-    color: var(--stone);
-  }
-  .cta-sub {
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: rgba(26,26,24,0.7);
-    margin-bottom: 48px;
-    font-weight: 300;
-  }
-  .cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  .btn-primary {
-    padding: 18px 48px;
-    background: var(--stone);
-    color: var(--marble);
-    border: none;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: #333; }
-  .btn-secondary {
-    padding: 18px 48px;
-    background: transparent;
-    color: var(--stone);
-    border: 1px solid var(--stone);
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { background: var(--stone); color: var(--marble); }
+/* WHY US */
+.whyus { background:var(--ink2); }
+.whyus-head { margin-bottom:4rem; }
+.whyus-head h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; line-height:1.15; margin-top:1rem; }
+.whyus-head h2 em { font-style:italic; color:var(--gold2); }
+.why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.why-card { background:var(--dark-card); padding:2.5rem 2rem; position:relative; overflow:hidden; }
+.why-card-line { position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .4s; transform-origin:left; }
+.why-card:hover .why-card-line { transform:scaleX(1); }
+.why-num { font-family:'Playfair Display',serif; font-size:4rem; color:rgba(168,135,74,.12); line-height:1; margin-bottom:1.25rem; }
+.why-title { font-family:'Playfair Display',serif; font-size:1.12rem; font-weight:400; margin-bottom:.75rem; }
+.why-body { font-size:.77rem; line-height:2; color:var(--ash); font-weight:300; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #111110;
-    padding: 48px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(184,151,74,0.1);
-  }
-  .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    color: var(--gold);
-    letter-spacing: 3px;
-  }
-  .footer-copy {
-    font-size: 11px;
-    color: var(--warm-gray);
-    letter-spacing: 1px;
-  }
-  .footer-note {
-    font-size: 11px;
-    color: var(--warm-gray);
-    text-align: right;
-  }
+/* PLANS */
+.plans { background:var(--parchment); color:var(--ink); }
+.plans .eyebrow { color:var(--gold); }
+.plans .eyebrow::before { background:var(--gold); }
+.plans-head { max-width:640px; margin-bottom:4rem; }
+.plans-head h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; line-height:1.1; color:var(--ink); margin-top:1rem; }
+.plans-head h2 em { font-style:italic; color:var(--gold); }
+.plans-head p { font-size:.88rem; line-height:2.1; color:#6b6358; font-weight:300; margin-top:1.25rem; }
+.plans-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+.plan { background:#fff; padding:3.5rem; position:relative; overflow:hidden; border:1px solid rgba(14,13,11,.08); transition:box-shadow .4s; }
+.plan:hover { box-shadow:0 24px 80px rgba(0,0,0,.1); }
+.plan.dark { background:var(--ink2); color:var(--parchment); border-color:rgba(168,135,74,.25); }
+.plan-ribbon { position:absolute; top:0; right:0; background:var(--gold); color:var(--ink); font-size:.56rem; letter-spacing:.25em; text-transform:uppercase; padding:.5rem 1.2rem; font-weight:600; }
+.plan-tier { font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+.plan-price-wrap { display:flex; align-items:baseline; gap:.3rem; margin-bottom:.5rem; }
+.plan-price { font-family:'Playfair Display',serif; font-size:5rem; font-weight:400; line-height:1; color:var(--ink); }
+.plan.dark .plan-price { color:var(--parchment); }
+.plan-price-sym { font-family:'Playfair Display',serif; font-size:2rem; align-self:flex-start; margin-top:.8rem; color:var(--gold); }
+.plan-per { font-size:.7rem; color:#9a9187; letter-spacing:.05em; margin-bottom:2rem; }
+.plan.dark .plan-per { color:var(--ash); }
+.plan-rule { height:1px; background:rgba(14,13,11,.08); margin:2rem 0; }
+.plan.dark .plan-rule { background:rgba(200,185,154,.1); }
+.plan-section { font-size:.56rem; letter-spacing:.25em; text-transform:uppercase; color:var(--ash); margin-top:1.75rem; margin-bottom:.9rem; }
+.plan.dark .plan-section { color:rgba(200,185,154,.4); }
+.plan-list { list-style:none; display:flex; flex-direction:column; gap:.85rem; }
+.plan-list li { display:flex; gap:.9rem; font-size:.8rem; line-height:1.65; color:#5a5248; font-weight:300; }
+.plan.dark .plan-list li { color:var(--cream); }
+.plan-list li::before { content:'◆'; color:var(--gold); font-size:.48rem; margin-top:.38rem; flex-shrink:0; }
+.plan-note { margin-top:2rem; padding:1.25rem 1.5rem; background:rgba(168,135,74,.07); border-left:2px solid var(--gold); font-size:.79rem; line-height:1.85; color:#5a5248; font-weight:300; }
+.plan.dark .plan-note { color:var(--cream); }
+.plan-btn { display:block; margin-top:2.5rem; padding:1.1rem 2rem; text-align:center; text-decoration:none; font-size:.63rem; letter-spacing:.25em; text-transform:uppercase; background:var(--ink); color:var(--parchment); border:1px solid var(--ink); transition:all .35s; }
+.plan-btn:hover { background:transparent; color:var(--ink); }
+.plan.dark .plan-btn { background:var(--gold); color:var(--ink); border-color:var(--gold); }
+.plan.dark .plan-btn:hover { background:transparent; color:var(--gold); }
 
-  /* ── COMPARISON TABLE ── */
-  .compare {
-    background: var(--off-white);
-    padding: 80px 60px;
-    color: var(--text-dark);
-  }
-  .compare .section-label { color: var(--gold); }
-  .compare .section-title { color: var(--text-dark); }
-  .compare-table {
-    width: 100%;
-    max-width: 1000px;
-    border-collapse: collapse;
-    margin-top: 50px;
-    font-size: 13px;
-  }
-  .compare-table th {
-    padding: 18px 24px;
-    text-align: left;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--text-mid);
-    border-bottom: 1px solid rgba(26,26,24,0.1);
-  }
-  .compare-table th.gold { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
-  .compare-table td {
-    padding: 18px 24px;
-    border-bottom: 1px solid rgba(26,26,24,0.06);
-    color: var(--text-mid);
-    font-weight: 300;
-  }
-  .compare-table tr:hover td { background: rgba(184,151,74,0.04); }
-  .check { color: var(--gold); font-size: 16px; }
-  .cross { color: #ccc; font-size: 16px; }
-  .partial { color: #b8974a88; font-size: 16px; }
+/* PRICE COMPARISON */
+.price-compare { background:var(--cream); color:var(--ink); }
+.price-compare .eyebrow { color:var(--gold); }
+.price-compare .eyebrow::before { background:var(--gold); }
+.pc-head { margin-bottom:3rem; }
+.pc-head h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:400; line-height:1.1; color:var(--ink); margin-top:1rem; }
+.pc-head h2 em { font-style:italic; color:var(--gold); }
+.pc-head p { font-size:.88rem; line-height:2.1; color:#7a7062; font-weight:300; margin-top:1rem; max-width:560px; }
+.pc-table-wrap { background:#fff; border:1px solid rgba(14,13,11,.08); overflow:hidden; box-shadow:0 8px 60px rgba(0,0,0,.06); }
+.pc-table { width:100%; border-collapse:collapse; }
+.pc-table thead tr { background:var(--ink2); }
+.pc-table thead th { padding:1.4rem 2rem; text-align:left; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ash); font-weight:400; }
+.pc-table thead th.pc-th-gold { color:var(--gold2); font-size:.7rem; }
+.pc-table tbody tr { border-bottom:1px solid rgba(14,13,11,.06); transition:background .2s; }
+.pc-table tbody tr:hover { background:rgba(168,135,74,.04); }
+.pc-table tbody td { padding:1.1rem 2rem; font-size:.82rem; color:#5a5248; font-weight:300; }
+.pc-table tbody td:first-child { color:var(--ink2); font-weight:400; }
+.pc-ck { color:var(--gold); font-size:1rem; font-weight:700; }
+.pc-xx { color:var(--mist); font-size:1rem; }
+.pc-total { background:var(--ink2) !important; }
+.pc-total td { color:var(--parchment) !important; padding:1.5rem 2rem !important; font-weight:400 !important; font-size:.9rem !important; }
+.pc-total td:first-child { color:var(--cream) !important; }
+.pc-price-big { font-family:'Playfair Display',serif; font-size:2rem; color:var(--gold2); }
+.pc-foot { font-size:.7rem; color:#9a9187; margin-top:1.25rem; font-style:italic; }
 
-  /* ── SECTION SPACING FIX ── */
-  .content-limit { max-width: 1200px; margin: 0 auto; }
-  .half-limit { max-width: 540px; }
+/* CTA */
+.cta-sec { background:var(--gold); padding:7rem 4rem; text-align:center; position:relative; overflow:hidden; }
+.cta-sec::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(255,255,255,.08),transparent); }
+.cta-sec::after { content:'SOLID POETRY'; position:absolute; font-family:'Playfair Display',serif; font-size:10rem; font-weight:700; color:rgba(14,13,11,.06); top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; pointer-events:none; }
+.cta-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
+.cta-tag { font-size:.6rem; letter-spacing:.35em; text-transform:uppercase; color:rgba(14,13,11,.5); margin-bottom:1.5rem; }
+.cta-h { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4.5rem); font-weight:400; color:var(--ink); line-height:1.05; margin-bottom:1.25rem; }
+.cta-sub { font-size:.88rem; color:rgba(14,13,11,.65); font-weight:300; margin-bottom:3rem; line-height:1.85; }
+.cta-btns { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+.cta-btn-p { padding:1.1rem 2.5rem; background:var(--ink); color:var(--parchment); font-size:.63rem; letter-spacing:.25em; text-transform:uppercase; text-decoration:none; border:1px solid var(--ink); transition:all .3s; }
+.cta-btn-p:hover { background:transparent; color:var(--ink); }
+.cta-btn-s { padding:1.1rem 2.5rem; background:transparent; color:var(--ink); font-size:.63rem; letter-spacing:.25em; text-transform:uppercase; text-decoration:none; border:1px solid rgba(14,13,11,.35); transition:all .3s; }
+.cta-btn-s:hover { background:var(--ink); color:var(--parchment); border-color:var(--ink); }
 
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    .intro, .plans, .competitors, .products, .timeline, .why, .strategy, .roi, .cta-section, .compare { padding: 70px 24px; }
-    .intro-grid, .strategy-grid, .plans-grid, .comp-grid, .products-grid, .why-grid { grid-template-columns: 1fr; }
-    .roi-metrics { grid-template-columns: repeat(2, 1fr); }
-    footer { flex-direction: column; gap: 20px; text-align: center; }
-    .hero-badge { display: none; }
-    .cta-buttons { flex-direction: column; align-items: center; }
-  }
+/* FOOTER */
+footer { background:#080807; padding:3rem 4rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(168,135,74,.15); }
+.footer-brand { font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; color:var(--gold2); }
+.footer-copy { font-size:.63rem; letter-spacing:.12em; color:var(--ash); }
+.footer-note { font-size:.63rem; color:rgba(122,115,102,.6); text-align:right; line-height:1.8; }
+
+/* FADE IN */
+.fade-up { opacity:0; transform:translateY(28px); transition:opacity .75s ease,transform .75s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .intro-grid,.strategy-split,.plans-grid { grid-template-columns:1fr; gap:3rem; }
+  .prod-grid,.comp-grid,.why-grid { grid-template-columns:1fr 1fr; }
+  .roi-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:720px){
+  nav { padding:1.25rem 1.5rem; }
+  .nav-links,.nav-pill { display:none; }
+  .section { padding:4rem 1.5rem; }
+  .hero { padding:0 1.5rem 4rem; }
+  .prod-grid,.comp-grid,.why-grid,.roi-grid { grid-template-columns:1fr; }
+  footer { flex-direction:column; gap:1.5rem; text-align:center; }
+  .footer-note { text-align:center; }
+  .cta-btns { flex-direction:column; align-items:center; }
+  .hero-meta { flex-direction:column; gap:1rem; }
+  .hero-vline { display:none; }
+}
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<div id="cur"></div>
+<div id="cur-ring"></div>
 
 <!-- NAV -->
 <nav>
@@ -916,645 +347,438 @@
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#competitors">Analysis</a></li>
-    <li><a href="#plans">Plans</a></li>
     <li><a href="#strategy">Strategy</a></li>
-    <li><a href="#cta">Contact</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#pricing">Pricing</a></li>
   </ul>
+  <a href="#cta" class="nav-pill">Get Started</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-lines"></div>
-  <div style="position:relative;z-index:1">
-    <p class="hero-tag">Confidential Marketing Proposal · 2025</p>
-    <h1 class="hero-title">Marketing That<br>Moves <em>Stone</em></h1>
-    <p class="hero-sub">Crafted exclusively for Solid Poetry™ — Luxury Stone Aesthetics</p>
-    <div class="hero-divider"></div>
-    <p class="hero-scroll">Scroll to Explore</p>
+  <div class="hero-canvas"></div>
+  <div class="hero-lines"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="hero-content">
+    <p class="hero-kicker">Confidential Marketing Proposal · Solid Poetry™ · 2025</p>
+    <h1 class="hero-h1">Where <em>Stone</em><br><span class="outline">Becomes</span><br><em>Legend</em></h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>Two Bespoke Plans</strong>₹20,000 &amp; ₹30,000 / month</div>
+      <div class="hero-vline"></div>
+      <div class="hero-meta-item"><strong>Luxury Stone Aesthetics</strong>India's Premium Market</div>
+      <div class="hero-vline"></div>
+      <div class="hero-meta-item"><strong>Full-Spectrum</strong>Content · Ads · Brand · SEO</div>
+    </div>
   </div>
-  <div class="hero-badge">
-    <span>Premium<br>Proposal<br>2025</span>
-  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
 <!-- INTRO -->
-<section class="intro" id="intro">
-  <div class="intro-grid">
-    <div class="intro-left">
-      <p class="section-label">The Brief</p>
-      <h2 class="section-title">Turning <em>Stone</em><br>Into Stories</h2>
-      <p class="intro-body">
-        Solid Poetry™ creates architectural masterpieces from stone — objects that live at the intersection of art and function. This proposal outlines a full-spectrum digital marketing strategy designed to position Solid Poetry™ as the most aspirational stone aesthetics brand in India.<br><br>
-        Two bespoke plans — ₹20,000 and ₹30,000 monthly retainers — each engineered to generate qualified leads, build premium brand perception, and dominate your market niche.
-      </p>
-      <div class="intro-stats">
-        <div class="stat-box">
-          <span class="stat-num">2</span>
-          <span class="stat-label">Growth Plans</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">6+</span>
-          <span class="stat-label">Deliverable Sets</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Custom Strategy</span>
+<section class="section intro" id="intro">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="intro-text fade-up">
+        <p class="eyebrow">The Brief</p>
+        <h2 class="display" style="font-size:clamp(2rem,4vw,3.5rem);font-weight:400;line-height:1.1;margin-top:1rem;">A Brand as Enduring<br>as the <em style="font-style:italic;color:var(--gold2)">Material Itself</em></h2>
+        <p>Solid Poetry™ occupies a rare and powerful space — the intersection of architecture, art, and nature. You create pieces that outlast trends, outlast fashion, outlast time. Your marketing should do the same.</p>
+        <p>This proposal outlines two precisely engineered monthly retainers that build a digital presence worthy of your craft — generating qualified leads from architects, interior designers, and luxury homeowners who understand the value of permanence.</p>
+        <div class="stat-row">
+          <div class="stat fade-up"><span class="stat-n">2</span><span class="stat-l">Bespoke Plans</span></div>
+          <div class="stat fade-up"><span class="stat-n">6+</span><span class="stat-l">Deliverable Sets</span></div>
+          <div class="stat fade-up"><span class="stat-n">∞</span><span class="stat-l">Brand Equity Built</span></div>
         </div>
       </div>
-    </div>
-    <div class="intro-right">
-      <div class="intro-card">
-        <h4>Our Mission</h4>
-        <p>To build a brand so visually compelling and strategically precise that every scroll, every impression, and every ad converts curiosity into desire — and desire into high-value clients for Solid Poetry™.</p>
-      </div>
-      <div class="intro-card">
-        <h4>Target Audience</h4>
-        <p>Architects, interior designers, luxury homeowners, hospitality brands, commercial developers & premium retail establishments who see stone not as material — but as an art form.</p>
+      <div class="intro-cards fade-up">
+        <div class="icard">
+          <p class="icard-label">Our Mission</p>
+          <h4 class="icard-title">Make Every Scroll Count</h4>
+          <p class="icard-body">Build a brand so visually compelling and strategically precise that every impression converts curiosity into desire — and desire into high-value clients for Solid Poetry™.</p>
+        </div>
+        <div class="icard">
+          <p class="icard-label">Target Audience</p>
+          <h4 class="icard-title">The Right Buyers</h4>
+          <p class="icard-body">Architects, interior designers, luxury homeowners, hospitality procurement teams, premium real estate developers — buyers who see stone not as material, but as art.</p>
+        </div>
+        <div class="icard">
+          <p class="icard-label">Our Edge</p>
+          <h4 class="icard-title">AI-Powered + Human-Led</h4>
+          <p class="icard-body">We combine experienced luxury marketers with cutting-edge AI production tools — delivering premium content at speed and scale, without compromising quality.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="products-header">
-    <p class="section-label">What We're Selling</p>
-    <h2 class="section-title">The <em>Crafted</em><br>Collection</h2>
-  </div>
-  <div class="products-grid">
-    <div class="product-card">
-      <span class="product-num">01</span>
-      <div class="product-icon">🪨</div>
-      <h3 class="product-name">Wall Art</h3>
-      <p class="product-desc">Hand-carved stone panels and relief sculptures that transform bare walls into gallery-worthy focal points. Each piece is unique — shaped by artisans, finished by nature.</p>
+<section class="section products" id="products">
+  <div class="section-inner">
+    <div class="products-header fade-up">
+      <p class="eyebrow">The Catalogue</p>
+      <h2>The <em>Crafted</em> Collection</h2>
     </div>
-    <div class="product-card">
-      <span class="product-num">02</span>
-      <div class="product-icon">🪑</div>
-      <h3 class="product-name">Console Tables</h3>
-      <p class="product-desc">Architectural stone console tables that anchor entryways and corridors — blending structural integrity with pure aesthetic refinement.</p>
-    </div>
-    <div class="product-card">
-      <span class="product-num">03</span>
-      <div class="product-icon">⬛</div>
-      <h3 class="product-name">Centre Tables</h3>
-      <p class="product-desc">Statement centre tables that become the conversation piece of any living space — sculptural forms that double as functional art.</p>
-    </div>
-    <div class="product-card">
-      <span class="product-num">04</span>
-      <div class="product-icon">🚿</div>
-      <h3 class="product-name">Counter Top Basins</h3>
-      <p class="product-desc">Stone basins that elevate the bathroom into a sanctuary. Handcrafted to sit on vanity tops — luxurious, durable, and utterly distinctive.</p>
-    </div>
-    <div class="product-card">
-      <span class="product-num">05</span>
-      <div class="product-icon">🏛️</div>
-      <h3 class="product-name">Pedestal Basins</h3>
-      <p class="product-desc">Freestanding pedestal basins — carved from solid natural stone. A bold architectural statement for premium bathrooms, hotels & spas.</p>
-    </div>
-    <div class="product-card" style="background: rgba(184,151,74,0.06); border-color: rgba(184,151,74,0.2);">
-      <span class="product-num">+</span>
-      <div class="product-icon" style="border-color: rgba(184,151,74,0.4);">✦</div>
-      <h3 class="product-name">Custom Orders</h3>
-      <p class="product-desc">Bespoke architectural stone elements designed in collaboration with architects and interior designers — the ultimate expression of the Solid Poetry™ brand.</p>
+    <div class="prod-grid">
+      <div class="prod-card fade-up"><span class="prod-num">01</span><div class="prod-icon">🪨</div><h3 class="prod-name">Wall Art</h3><p class="prod-desc">Hand-carved stone panels and relief sculptures. Each piece unique — shaped by artisans, finished by nature. Permanent architectural statements.</p></div>
+      <div class="prod-card fade-up"><span class="prod-num">02</span><div class="prod-icon">🪑</div><h3 class="prod-name">Console Tables</h3><p class="prod-desc">Architectural stone console tables anchoring entryways with structural integrity fused to pure aesthetic refinement. Presence in solid form.</p></div>
+      <div class="prod-card fade-up"><span class="prod-num">03</span><div class="prod-icon">⬛</div><h3 class="prod-name">Centre Tables</h3><p class="prod-desc">Sculptural forms that function as art — stone centre tables that hold a room together effortlessly and unmistakably.</p></div>
+      <div class="prod-card fade-up"><span class="prod-num">04</span><div class="prod-icon">🚿</div><h3 class="prod-name">Counter Top Basins</h3><p class="prod-desc">Stone basins that elevate the bathroom into sanctuary. Handcrafted to rest on vanity tops — luxurious, durable, deeply distinctive.</p></div>
+      <div class="prod-card fade-up"><span class="prod-num">05</span><div class="prod-icon">🏛️</div><h3 class="prod-name">Pedestal Basins</h3><p class="prod-desc">Freestanding pedestal basins carved from solid natural stone — bold architectural statements for premium bathrooms, boutique hotels and spas.</p></div>
+      <div class="prod-card accent fade-up"><span class="prod-num">✦</span><div class="prod-icon">✦</div><h3 class="prod-name">Custom Commissions</h3><p class="prod-desc">Bespoke architectural stone elements designed in collaboration with architects and designers. The ultimate expression of the Solid Poetry™ vision.</p></div>
     </div>
   </div>
 </section>
 
 <!-- COMPETITORS -->
-<section class="competitors" id="competitors">
-  <div class="content-limit">
-    <p class="section-label">Competitive Landscape</p>
-    <h2 class="section-title">Know Your <em>Rivals</em></h2>
-    <p style="margin-top:20px;font-size:13px;color:var(--warm-gray);max-width:550px;font-weight:300;line-height:2;">
-      We've analyzed your top 3 Instagram competitors to identify positioning gaps, content weaknesses and the whitespace where Solid Poetry™ can dominate.
-    </p>
-  </div>
-  <div class="comp-grid">
-    <div class="comp-card">
-      <h3 class="comp-handle">@stonecold.in</h3>
-      <p class="comp-niche">Stone Decor · Lifestyle</p>
-      <div class="comp-metrics">
-        <div class="comp-metric">
-          <span class="comp-metric-label">Positioning</span>
-          <span class="comp-metric-val">Mass Market</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Content Style</span>
-          <span class="comp-metric-val">Product Photos</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Storytelling</span>
-          <span class="comp-metric-val">Low</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Paid Ads</span>
-          <span class="comp-metric-val">Minimal</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Video Content</span>
-          <span class="comp-metric-val">Occasional</span>
-        </div>
+<section class="section competitors" id="competitors">
+  <div class="section-inner">
+    <div class="comp-intro fade-up">
+      <p class="eyebrow">Market Intelligence</p>
+      <h2>Know Your <em>Rivals,</em><br>Own Your Space</h2>
+      <p>We've studied your three primary Instagram competitors in depth — identifying their positioning gaps, content weaknesses, and the whitespace where Solid Poetry™ can establish clear dominance.</p>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-card fade-up">
+        <h3 class="comp-handle">@stonecold.in</h3>
+        <p class="comp-type">Stone Decor · Mass Market</p>
+        <div class="comp-row"><span class="comp-row-k">Positioning</span><span class="comp-row-v">Mass Market</span></div>
+        <div class="comp-row"><span class="comp-row-k">Content Style</span><span class="comp-row-v">Basic Product Shots</span></div>
+        <div class="comp-row"><span class="comp-row-k">Brand Storytelling</span><span class="comp-row-v">Minimal</span></div>
+        <div class="comp-row"><span class="comp-row-k">Paid Advertising</span><span class="comp-row-v">Very Limited</span></div>
+        <div class="comp-row"><span class="comp-row-k">Video Content</span><span class="comp-row-v">Occasional</span></div>
+        <div class="comp-gap-box"><strong>Opportunity:</strong> No luxury narrative, no brand story. Solid Poetry™ can own the high-end aesthetic storytelling space entirely ignored here.</div>
       </div>
-      <div class="comp-gap">
-        <strong style="color:var(--gold-light)">Gap Identified:</strong> Lacks luxury narrative. No consistent brand story. Solid Poetry™ can own the high-end aesthetic storytelling space.
+      <div class="comp-card fade-up">
+        <h3 class="comp-handle">@koaliving_official</h3>
+        <p class="comp-type">Stone Living · Mid-Premium</p>
+        <div class="comp-row"><span class="comp-row-k">Positioning</span><span class="comp-row-v">Mid-Premium</span></div>
+        <div class="comp-row"><span class="comp-row-k">Content Style</span><span class="comp-row-v">Curated Lifestyle</span></div>
+        <div class="comp-row"><span class="comp-row-k">Brand Storytelling</span><span class="comp-row-v">Medium</span></div>
+        <div class="comp-row"><span class="comp-row-k">Paid Advertising</span><span class="comp-row-v">Active but Generic</span></div>
+        <div class="comp-row"><span class="comp-row-k">Video Content</span><span class="comp-row-v">Regular Reels</span></div>
+        <div class="comp-gap-box"><strong>Opportunity:</strong> Good visuals, weak brand identity and no strong USP. We build a far more authoritative luxury tone that commands premium pricing.</div>
+      </div>
+      <div class="comp-card fade-up">
+        <h3 class="comp-handle">@thealmoststone</h3>
+        <p class="comp-type">Stone Art · Editorial Niche</p>
+        <div class="comp-row"><span class="comp-row-k">Positioning</span><span class="comp-row-v">Artistic / Niche</span></div>
+        <div class="comp-row"><span class="comp-row-k">Content Style</span><span class="comp-row-v">Editorial / Strong</span></div>
+        <div class="comp-row"><span class="comp-row-k">Brand Storytelling</span><span class="comp-row-v">High</span></div>
+        <div class="comp-row"><span class="comp-row-k">Paid Advertising</span><span class="comp-row-v">Very Limited</span></div>
+        <div class="comp-row"><span class="comp-row-k">Video Content</span><span class="comp-row-v">Consistent &amp; Strong</span></div>
+        <div class="comp-gap-box"><strong>Opportunity:</strong> Strongest storytelling but near-zero paid reach. We add a full paid-media engine and GMB presence they entirely lack.</div>
       </div>
     </div>
-    <div class="comp-card">
-      <h3 class="comp-handle">@koaliving_official</h3>
-      <p class="comp-niche">Stone Living · Interior</p>
-      <div class="comp-metrics">
-        <div class="comp-metric">
-          <span class="comp-metric-label">Positioning</span>
-          <span class="comp-metric-val">Mid-Premium</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Content Style</span>
-          <span class="comp-metric-val">Curated Lifestyle</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Storytelling</span>
-          <span class="comp-metric-val">Medium</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Paid Ads</span>
-          <span class="comp-metric-val">Active</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Video Content</span>
-          <span class="comp-metric-val">Regular Reels</span>
-        </div>
-      </div>
-      <div class="comp-gap">
-        <strong style="color:var(--gold-light)">Gap Identified:</strong> Good visuals, weak brand identity. No strong USP differentiation. We can create a more authoritative luxury tone.
-      </div>
+    <div class="big-table-wrap fade-up">
+      <h3 class="big-table-title">Competitive Edge <em>Matrix</em></h3>
+      <table class="btable">
+        <thead>
+          <tr><th>Feature</th><th>@stonecold</th><th>@koaliving</th><th>@thealmoststone</th><th class="hl">Solid Poetry™</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Luxury Brand Narrative</td><td><span class="xx">✗</span></td><td><span class="xx">◐</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓✓</span></td></tr>
+          <tr><td>Professional Video Production</td><td><span class="xx">✗</span></td><td><span class="xx">◐</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓✓</span></td></tr>
+          <tr><td>AI-Enhanced Imagery</td><td><span class="xx">✗</span></td><td><span class="xx">✗</span></td><td><span class="xx">✗</span></td><td><span class="ck">✓✓</span></td></tr>
+          <tr><td>Meta &amp; Instagram Paid Ads</td><td><span class="xx">✗</span></td><td><span class="xx">◐</span></td><td><span class="xx">✗</span></td><td><span class="ck">✓✓</span></td></tr>
+          <tr><td>Google My Business Presence</td><td><span class="xx">◐</span></td><td><span class="xx">✗</span></td><td><span class="xx">✗</span></td><td><span class="ck">✓✓</span></td></tr>
+          <tr><td>Monthly Competitor Reports</td><td><span class="xx">✗</span></td><td><span class="xx">✗</span></td><td><span class="xx">✗</span></td><td><span class="ck">✓✓</span></td></tr>
+          <tr><td>Performance Analytics</td><td><span class="xx">✗</span></td><td><span class="xx">✗</span></td><td><span class="xx">✗</span></td><td><span class="ck">✓✓</span></td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="comp-card">
-      <h3 class="comp-handle">@thealmoststone</h3>
-      <p class="comp-niche">Stone Art · Design</p>
-      <div class="comp-metrics">
-        <div class="comp-metric">
-          <span class="comp-metric-label">Positioning</span>
-          <span class="comp-metric-val">Artistic / Niche</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Content Style</span>
-          <span class="comp-metric-val">Artistic / Editorial</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Storytelling</span>
-          <span class="comp-metric-val">High</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Paid Ads</span>
-          <span class="comp-metric-val">Limited</span>
-        </div>
-        <div class="comp-metric">
-          <span class="comp-metric-label">Video Content</span>
-          <span class="comp-metric-val">Strong</span>
-        </div>
-      </div>
-      <div class="comp-gap">
-        <strong style="color:var(--gold-light)">Gap Identified:</strong> Great storytelling but limited paid reach. We outperform with paid + organic hybrid strategy and GMB presence (Plan 2).
-      </div>
-    </div>
-  </div>
-
-  <!-- COMPARISON TABLE -->
-  <div class="content-limit" style="margin-top:60px;">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>@stonecold.in</th>
-          <th>@koaliving</th>
-          <th>@thealmoststone</th>
-          <th class="gold">Solid Poetry™</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Luxury Brand Narrative</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓✓</span></td>
-        </tr>
-        <tr>
-          <td>Professional Video Production</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓✓</span></td>
-        </tr>
-        <tr>
-          <td>AI-Enhanced Imagery</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓✓</span></td>
-        </tr>
-        <tr>
-          <td>Meta & Instagram Paid Ads</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓✓</span></td>
-        </tr>
-        <tr>
-          <td>Google My Business</td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓✓</span></td>
-        </tr>
-        <tr>
-          <td>Competitor Analysis Reports</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓✓</span></td>
-        </tr>
-        <tr>
-          <td>Monthly Performance Reports</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓✓</span></td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
 <!-- STRATEGY -->
-<section class="strategy" id="strategy">
-  <p class="section-label">Our Approach</p>
-  <h2 class="section-title">The <em>Strategy</em> Behind<br>the Numbers</h2>
-  <div class="strategy-grid">
-    <div class="strategy-block">
-      <h3>Content Architecture</h3>
-      <p>We build a content universe around Solid Poetry™ — not just pretty photos. Every post serves a purpose: educating the audience on stone craftsmanship, inspiring aspirational living, or driving a direct action (enquiry, visit, WhatsApp DM).</p>
-      <p>Content pillars: Product showcases · Craftsmanship process · Space transformations · Client testimonials · Design education · Behind the brand.</p>
-      <div class="strategy-tags">
-        <span class="tag">Reels</span>
-        <span class="tag">Carousels</span>
-        <span class="tag">Stories</span>
-        <span class="tag">Highlights</span>
-        <span class="tag">GMB Posts</span>
-        <span class="tag">Pinterest Pins</span>
+<section class="section strategy" id="strategy">
+  <div class="section-inner">
+    <div class="strategy-split">
+      <div class="strategy-left fade-up">
+        <p class="eyebrow">Our Approach</p>
+        <h2>The Intelligence<br>Behind the <em>Art</em></h2>
+        <p>Every campaign we build for Solid Poetry™ is engineered around one truth: your buyers don't want products. They want to feel permanence, weight, artistry. Our strategy makes them feel it before they ever touch stone.</p>
+        <p>We build a content universe, not just posts. Each piece earns its place by serving a strategic purpose — educating, inspiring or converting the exact people who will pay for exceptional stone craftsmanship.</p>
+        <div class="quote-box">
+          <p>"We don't make noise. We make your buyers feel something."</p>
+          <span>— Our Creative Philosophy</span>
+        </div>
       </div>
-    </div>
-    <div class="strategy-block">
-      <h3>Paid Media Targeting</h3>
-      <p>We go beyond basic boosting. Our Meta campaigns are built on precision targeting — reaching architects, interior designers, premium homeowners and hospitality procurement teams across Tier 1 Indian cities.</p>
-      <p>We use custom audiences, lookalike audiences, retargeting pixels and interest-based targeting to ensure every rupee of ad spend works hard.</p>
-      <div class="strategy-tags">
-        <span class="tag">Custom Audiences</span>
-        <span class="tag">Lookalike</span>
-        <span class="tag">Retargeting</span>
-        <span class="tag">Lead Forms</span>
-        <span class="tag">Conversion Ads</span>
-      </div>
-    </div>
-    <div class="strategy-block">
-      <h3>AI Visual Production</h3>
-      <p>Using cutting-edge AI image generation tools, we create photo-realistic renders of your stone products placed in aspirational interiors — eliminating the need for expensive photoshoot locations while producing scroll-stopping visuals at scale.</p>
-      <p>Each AI image is post-processed, branded and styled to match Solid Poetry™'s dark, architectural aesthetic.</p>
-      <div class="strategy-tags">
-        <span class="tag">Midjourney</span>
-        <span class="tag">AI Renders</span>
-        <span class="tag">Lifestyle Scenes</span>
-        <span class="tag">Product Focus</span>
-      </div>
-    </div>
-    <div class="strategy-block">
-      <h3>Brand Positioning</h3>
-      <p>Solid Poetry™ isn't selling furniture. It's selling an emotion — the feeling of permanence, texture, artistry. Our messaging strategy builds this narrative consistently across every touchpoint.</p>
-      <p>We position Solid Poetry™ as the ultimate destination for architects and designers who want pieces that outlast trends — and define spaces.</p>
-      <div class="strategy-tags">
-        <span class="tag">Luxury Tone</span>
-        <span class="tag">Storytelling</span>
-        <span class="tag">Brand Voice</span>
-        <span class="tag">Consistency</span>
+      <div class="strategy-blocks">
+        <div class="str-block fade-up">
+          <div class="str-block-top"><h4 class="str-block-name">Content Architecture</h4><span class="str-block-tag">Foundation</span></div>
+          <p class="str-block-body">Six content pillars — Product showcases, Craftsmanship process, Space transformations, Design education, Client stories, Behind-the-brand. Every post earns its place.</p>
+          <div class="str-tags"><span class="str-tag">Reels</span><span class="str-tag">Carousels</span><span class="str-tag">Stories</span><span class="str-tag">Highlights</span></div>
+        </div>
+        <div class="str-block fade-up">
+          <div class="str-block-top"><h4 class="str-block-name">Paid Media Precision</h4><span class="str-block-tag">Growth</span></div>
+          <p class="str-block-body">Meta campaigns built on precision targeting — architects, interior designers, HNI homeowners, hospitality procurement across Tier 1 cities. Custom + lookalike audiences, retargeting pixels, A/B tested creatives.</p>
+          <div class="str-tags"><span class="str-tag">Custom Audiences</span><span class="str-tag">Lookalike</span><span class="str-tag">Retargeting</span></div>
+        </div>
+        <div class="str-block fade-up">
+          <div class="str-block-top"><h4 class="str-block-name">AI Visual Production</h4><span class="str-block-tag">Innovation</span></div>
+          <p class="str-block-body">Photo-realistic AI renders of your stone pieces in aspirational interiors — luxury homes, boutique hotels, premium spas. Scroll-stopping at scale, without costly photoshoot logistics.</p>
+          <div class="str-tags"><span class="str-tag">AI Renders</span><span class="str-tag">Lifestyle Scenes</span><span class="str-tag">Brand Grading</span></div>
+        </div>
+        <div class="str-block fade-up">
+          <div class="str-block-top"><h4 class="str-block-name">Brand Positioning</h4><span class="str-block-tag">Identity</span></div>
+          <p class="str-block-body">Solid Poetry™ isn't selling furniture — it's selling permanence. Our messaging builds this narrative at every touchpoint: the brand of architects and designers who refuse to compromise.</p>
+          <div class="str-tags"><span class="str-tag">Luxury Tone</span><span class="str-tag">Storytelling</span><span class="str-tag">Consistency</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TIMELINE -->
-<section class="timeline" id="timeline">
-  <div class="timeline-header">
-    <p class="section-label">Execution Roadmap</p>
-    <h2 class="section-title">Month One<br><em>Onboarding</em> Plan</h2>
-  </div>
-  <div class="timeline-grid">
-    <div class="timeline-item">
-      <div class="timeline-dot"><span></span></div>
-      <div class="timeline-content">
-        <p class="timeline-week">Week 1</p>
-        <h3 class="timeline-title">Brand Discovery & Strategy</h3>
-        <p class="timeline-desc">Brand questionnaire, mood board creation, competitor analysis deep-dive, target audience profiling, content pillars definition, and ad account setup. We learn Solid Poetry™ inside-out before creating a single piece of content.</p>
+<section class="section timeline" id="timeline">
+  <div class="section-inner">
+    <p class="eyebrow fade-up">Execution Roadmap</p>
+    <h2 class="fade-up">Month One <em>Onboarding</em> Plan</h2>
+    <div class="tl-track">
+      <div class="tl-item fade-up">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-box">
+          <p class="tl-week">Week 01</p>
+          <h3 class="tl-title">Brand Discovery &amp; Strategy</h3>
+          <p class="tl-body">Deep-dive brand questionnaire, mood board creation, full competitor analysis, target audience profiling, content pillar definition, and ad account audit. We learn Solid Poetry™ inside-out before touching a single creative asset.</p>
+        </div>
       </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"><span></span></div>
-      <div class="timeline-content">
-        <p class="timeline-week">Week 2</p>
-        <h3 class="timeline-title">Visual Production Sprint</h3>
-        <p class="timeline-desc">AI image batch generation (15/20 images), video shoot coordination, script writing for brand films, GMB profile setup (Prestige Plan), social media profile optimization, and content calendar for Month 1 finalized.</p>
+      <div class="tl-item fade-up">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-box">
+          <p class="tl-week">Week 02</p>
+          <h3 class="tl-title">Visual Production Sprint</h3>
+          <p class="tl-body">AI image batch generation (15 or 20 per plan), video shoot coordination and scripting, GMB profile setup (Prestige), social profile optimization, and Month 1 content calendar finalized for approval.</p>
+        </div>
       </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"><span></span></div>
-      <div class="timeline-content">
-        <p class="timeline-week">Week 3</p>
-        <h3 class="timeline-title">Content Launch & Ad Go-Live</h3>
-        <p class="timeline-desc">First batch of social posts published, Meta ad campaigns launched, Instagram profile refreshed with new bio, highlights and content aesthetic. First video published. Ad audiences set live and pixel tracking confirmed.</p>
+      <div class="tl-item fade-up">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-box">
+          <p class="tl-week">Week 03</p>
+          <h3 class="tl-title">Content Launch &amp; Ads Go Live</h3>
+          <p class="tl-body">First social posts published, Meta ad campaigns launched, Instagram profile refreshed with new aesthetic, highlights and grid. First brand video published. Audiences live and pixel tracking confirmed.</p>
+        </div>
       </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"><span></span></div>
-      <div class="timeline-content">
-        <p class="timeline-week">Week 4</p>
-        <h3 class="timeline-title">Optimize, Report & Plan Month 2</h3>
-        <p class="timeline-desc">Ad performance review, creative A/B test results, engagement rate analysis, first monthly report delivered, Month 2 content calendar presented, strategy call held. Ongoing momentum built into Month 2.</p>
+      <div class="tl-item fade-up">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-box">
+          <p class="tl-week">Week 04</p>
+          <h3 class="tl-title">Optimize, Report &amp; Plan Month Two</h3>
+          <p class="tl-body">Ad performance review, creative A/B test analysis, engagement breakdown, first monthly report delivered, Month 2 calendar presented, and strategy call conducted. Momentum built into ongoing partnership.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ROI -->
-<section class="roi" id="roi">
+<section class="section roi" id="roi">
   <div class="roi-inner">
-    <p class="section-label" style="justify-content:center;">Expected Outcomes</p>
-    <h2 class="roi-title">What You Can<br><em>Expect</em> to See</h2>
-    <p class="roi-sub">These benchmarks are based on comparable luxury decor and architectural product brands in Indian markets. Results grow significantly from Month 2 onwards as audiences warm and algorithms favour established accounts.</p>
-    <div class="roi-metrics">
-      <div class="roi-metric">
-        <span class="roi-metric-num">3×</span>
-        <span class="roi-metric-label">Avg. ROAS on<br>Meta Ads</span>
-      </div>
-      <div class="roi-metric">
-        <span class="roi-metric-num">40%</span>
-        <span class="roi-metric-label">Follower Growth<br>in 90 Days</span>
-      </div>
-      <div class="roi-metric">
-        <span class="roi-metric-num">15+</span>
-        <span class="roi-metric-label">Qualified Leads<br>Per Month</span>
-      </div>
-      <div class="roi-metric">
-        <span class="roi-metric-num">5×</span>
-        <span class="roi-metric-label">Content Output<br>vs. Current</span>
-      </div>
+    <p class="eyebrow fade-up" style="justify-content:center;">Expected Outcomes</p>
+    <h2 class="fade-up">What You Can <em>Expect</em> to See</h2>
+    <p class="roi-sub fade-up">Benchmarks from comparable luxury decor and architectural product brands in Indian markets. Results compound significantly from Month 2 as audiences warm and algorithms favour established accounts.</p>
+    <div class="roi-grid">
+      <div class="roi-box fade-up"><span class="roi-n">3×</span><span class="roi-l">Average ROAS on<br>Meta Campaigns</span></div>
+      <div class="roi-box fade-up"><span class="roi-n">40%</span><span class="roi-l">Follower Growth<br>in First 90 Days</span></div>
+      <div class="roi-box fade-up"><span class="roi-n">15+</span><span class="roi-l">Qualified Leads<br>Per Month</span></div>
+      <div class="roi-box fade-up"><span class="roi-n">5×</span><span class="roi-l">Content Output<br>vs. Current State</span></div>
     </div>
   </div>
 </section>
 
 <!-- WHY US -->
-<section class="why" id="why">
-  <div class="content-limit">
-    <p class="section-label">Why Choose Us</p>
-    <h2 class="section-title">What Sets Us<br><em>Apart</em></h2>
-  </div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-num">01</div>
-      <h3 class="why-title">Niche Expertise</h3>
-      <p class="why-desc">We understand luxury decor and architectural product marketing. Generic agencies don't speak the language of your buyers — we do. Interior designers and architects respond to very specific messaging.</p>
+<section class="section whyus" id="why">
+  <div class="section-inner">
+    <div class="whyus-head fade-up">
+      <p class="eyebrow">Why Partner With Us</p>
+      <h2>What Sets Us <em>Apart</em></h2>
     </div>
-    <div class="why-card">
-      <div class="why-num">02</div>
-      <h3 class="why-title">AI-Powered Production</h3>
-      <p class="why-desc">We leverage the latest AI tools to produce premium visual content at 1/5th the cost of traditional photography shoots — giving you more content, more consistently, with no compromise on quality.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-num">03</div>
-      <h3 class="why-title">Full Transparency</h3>
-      <p class="why-desc">Monthly reports, weekly check-ins, live ad dashboards. You always know exactly what's happening with your money, your audience, and your brand. No black boxes.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-num">04</div>
-      <h3 class="why-title">Brand-First Thinking</h3>
-      <p class="why-desc">Every content piece, every ad, every caption is created to build the Solid Poetry™ brand — not just vanity metrics. We build equity that compounds month over month.</p>
+    <div class="why-grid">
+      <div class="why-card fade-up"><div class="why-card-line"></div><div class="why-num">01</div><h3 class="why-title">Niche Expertise</h3><p class="why-body">We understand how luxury decor buyers think and decide. Generic agencies speak to everyone and reach no one. We speak directly to architects and designers in the language they trust.</p></div>
+      <div class="why-card fade-up"><div class="why-card-line"></div><div class="why-num">02</div><h3 class="why-title">AI-Powered Scale</h3><p class="why-body">Cutting-edge AI production tools deliver premium visual content at a fraction of traditional photoshoot cost — more content, more consistently, zero compromise on quality.</p></div>
+      <div class="why-card fade-up"><div class="why-card-line"></div><div class="why-num">03</div><h3 class="why-title">Full Transparency</h3><p class="why-body">Monthly reports, weekly updates, live ad dashboards. You always know what's happening with your budget, your audience, and your brand growth. Zero black boxes.</p></div>
+      <div class="why-card fade-up"><div class="why-card-line"></div><div class="why-num">04</div><h3 class="why-title">Brand-First Always</h3><p class="why-body">Every asset builds the Solid Poetry™ brand — not just vanity metrics. Every month your brand equity compounds. This is the investment that outlasts any single campaign.</p></div>
     </div>
   </div>
 </section>
 
 <!-- PLANS -->
-<section class="plans" id="plans">
-  <div class="plans-header">
-    <p class="section-label">Choose Your Plan</p>
-    <h2 class="section-title">Two Paths to <em>Dominance</em></h2>
-    <p style="margin-top:20px;font-size:13px;line-height:2;color:var(--text-mid);font-weight:300;">Both plans are monthly retainers built for Solid Poetry™ — crafted to grow brand equity, drive qualified leads, and build a premium digital presence that reflects the quality of your stone craftsmanship.</p>
-  </div>
-  <div class="plans-grid">
-
-    <!-- PLAN 1 -->
-    <div class="plan-card">
-      <div class="plan-tier">Plan 01 — Foundation</div>
-      <div class="plan-price"><sup>₹</sup>20,000</div>
-      <div class="plan-currency">Per Month · No Hidden Fees</div>
-      <div class="plan-divider"></div>
-
-      <div class="plan-section-title">Video Production</div>
-      <ul class="plan-items">
-        <li>3 Professional Brand Videos — showcasing your products, craftsmanship process, and brand story. Edited for Instagram Reels, YouTube Shorts & Meta Ads.</li>
-        <li>Scripted, shot-listed & branded to the Solid Poetry™ aesthetic — dark stone tones, cinematic pacing.</li>
-        <li>Delivered in multiple aspect ratios: 9:16, 1:1, 16:9.</li>
-      </ul>
-
-      <div class="plan-section-title">AI Visual Content</div>
-      <ul class="plan-items">
-        <li>15 Premium AI-Generated Product Images — ultra-realistic renders of stone pieces in aspirational interior environments (hotels, luxury homes, spa settings).</li>
-        <li>Custom-branded with Solid Poetry™ watermark and color grading.</li>
-        <li>Formatted for Instagram feed, Stories & ad creatives.</li>
-      </ul>
-
-      <div class="plan-section-title">Social Media Management</div>
-      <ul class="plan-items">
-        <li>Full Instagram & Facebook management — 20 posts per month.</li>
-        <li>Captions crafted with luxury copywriting, trending hashtag strategy.</li>
-        <li>Story content, highlights covers, and Reel planning calendar.</li>
-        <li>Community management — DMs and comment responses.</li>
-        <li>Monthly performance analytics report.</li>
-      </ul>
-
-      <div class="plan-section-title">Meta & Instagram Advertising</div>
-      <ul class="plan-items">
-        <li>2 Active Ad Campaigns per month — lead generation + brand awareness.</li>
-        <li>Ad creative design (static + video formats).</li>
-        <li>Audience targeting: Interior designers, HNI homeowners, architects by city & interest.</li>
-        <li>A/B testing of ad copies and creatives.</li>
-        <li>Weekly ad performance monitoring & optimization.</li>
-      </ul>
-
-      <div class="plan-highlight">
-        ✦ Best for brands starting their digital journey — establishes premium positioning, builds audience trust and begins generating qualified inquiries within 30–60 days.
-      </div>
-      <a href="#cta" class="plan-cta">Choose Foundation Plan</a>
+<section class="section plans" id="plans">
+  <div class="section-inner">
+    <div class="plans-head fade-up">
+      <p class="eyebrow">Choose Your Plan</p>
+      <h2>Two Paths to <em>Market Leadership</em></h2>
+      <p>Both plans are monthly retainers built exclusively for Solid Poetry™ — designed to grow brand equity, drive qualified leads, and establish a premium digital presence that matches the artistry of your stone craftsmanship.</p>
     </div>
-
-    <!-- PLAN 2 -->
-    <div class="plan-card featured">
-      <div class="plan-badge">Most Popular</div>
-      <div class="plan-tier">Plan 02 — Prestige</div>
-      <div class="plan-price"><sup>₹</sup>30,000</div>
-      <div class="plan-currency">Per Month · Full-Spectrum Growth</div>
-      <div class="plan-divider"></div>
-
-      <div class="plan-section-title">Video Production — Enhanced</div>
-      <ul class="plan-items">
-        <li>4 Professional Brand Videos — including 1 cinematic brand film (60–90 sec), 2 product showcase reels, and 1 testimonial/behind-the-scenes video.</li>
-        <li>Plus: 2 AI-Generated Cinematic Videos — hyper-realistic stone spaces, product fly-throughs, visual storytelling with motion graphics & music.</li>
-        <li>Colour graded to Solid Poetry™ brand palette — warm stone, deep shadow, golden hour.</li>
-      </ul>
-
-      <div class="plan-section-title">AI Visual Content — Premium</div>
-      <ul class="plan-items">
-        <li>20 Premium AI Product Images — expanded library across all product categories.</li>
-        <li>Architectural lifestyle renders: your pieces placed in high-end hotels, modern villas, premium spas.</li>
-        <li>Complete brand style guide for visual consistency across all channels.</li>
-      </ul>
-
-      <div class="plan-section-title">Social Media Management — Full</div>
-      <ul class="plan-items">
-        <li>Full Instagram, Facebook & Pinterest management — 28+ posts per month.</li>
-        <li>Editorial content calendar with product launches, campaigns & seasonal themes.</li>
-        <li>Influencer outreach strategy — identify 3–5 relevant architecture/design influencers.</li>
-        <li>Story, Reel, Carousel planning + engagement growth strategy.</li>
-      </ul>
-
-      <div class="plan-section-title">Google My Business (GMB) Setup & Management</div>
-      <ul class="plan-items">
-        <li>Full GMB profile setup/optimization — photos, service list, business description, map optimization.</li>
-        <li>Monthly GMB posts + Google review management strategy.</li>
-        <li>Local SEO optimization to appear in "stone furniture near me" / "stone basin supplier" searches.</li>
-      </ul>
-
-      <div class="plan-section-title">Meta Ads — Full Creative Suite</div>
-      <ul class="plan-items">
-        <li>3 Active Ad Campaigns — lead gen, retargeting & brand reach.</li>
-        <li>Full creative production for ads: 3 unique ad sets with 2–3 creative variants each.</li>
-        <li>Lookalike audience building from past enquiries/customers.</li>
-        <li>Monthly detailed ad performance report with insights & recommendations.</li>
-      </ul>
-
-      <div class="plan-section-title">Competitor Analysis — Monthly</div>
-      <ul class="plan-items">
-        <li>Monthly competitor intelligence report covering: @stonecold.in, @koaliving_official, @thealmoststone + any new entrants.</li>
-        <li>Track their posting frequency, engagement rates, ad activity, product launches.</li>
-        <li>Strategic recommendations to stay 3 steps ahead.</li>
-        <li>Identify trending content formats before they peak.</li>
-      </ul>
-
-      <div class="plan-section-title">Monthly Performance Reports</div>
-      <ul class="plan-items">
-        <li>Detailed monthly report: reach, engagement, follower growth, ad ROAS, website traffic, enquiry count, GMB views.</li>
-        <li>Strategy session call (30 min) with your account manager each month.</li>
-      </ul>
-
-      <div class="plan-highlight">
-        ✦ The complete growth engine. Designed for brands ready to lead their category — combining content, paid media, SEO presence, competitor intelligence, and brand storytelling into one cohesive monthly powerhouse.
+    <div class="plans-grid">
+      <div class="plan fade-up">
+        <div class="plan-tier">Plan 01 — Foundation</div>
+        <div class="plan-price-wrap"><span class="plan-price-sym">₹</span><span class="plan-price">20,000</span></div>
+        <p class="plan-per">Per Month · No Hidden Fees</p>
+        <div class="plan-rule"></div>
+        <p class="plan-section">Video Production</p>
+        <ul class="plan-list">
+          <li>3 Professional Brand Videos — products, craftsmanship process and brand story. Edited for Reels, YouTube Shorts &amp; Meta Ads.</li>
+          <li>Scripted, shot-listed &amp; branded to Solid Poetry™ aesthetic — cinematic pacing, dark stone tones.</li>
+          <li>Delivered in multiple ratios: 9:16 · 1:1 · 16:9.</li>
+        </ul>
+        <p class="plan-section">AI Visual Content</p>
+        <ul class="plan-list">
+          <li>15 Premium AI Product Images — photo-realistic renders in aspirational interiors: hotels, luxury homes, spa settings.</li>
+          <li>Custom branded with Solid Poetry™ colour grading, formatted for feed, Stories &amp; ad creatives.</li>
+        </ul>
+        <p class="plan-section">Social Media Management</p>
+        <ul class="plan-list">
+          <li>Full Instagram &amp; Facebook management — 20 curated posts per month.</li>
+          <li>Luxury copywriting, hashtag strategy, Reel planning calendar.</li>
+          <li>Story content, highlights covers, community management (DMs &amp; comments).</li>
+          <li>Monthly performance analytics summary report.</li>
+        </ul>
+        <p class="plan-section">Meta &amp; Instagram Advertising</p>
+        <ul class="plan-list">
+          <li>2 Active Ad Campaigns/month — lead generation + brand awareness.</li>
+          <li>Ad creative design in static &amp; video formats with A/B testing.</li>
+          <li>Audience targeting: architects, interior designers, HNI homeowners by city &amp; interest.</li>
+          <li>Weekly performance monitoring &amp; budget optimization.</li>
+        </ul>
+        <div class="plan-note">✦ Best for brands building their foundation — establishes premium positioning, grows a qualified audience, and begins generating inbound enquiries within 30–60 days.</div>
+        <a href="#cta" class="plan-btn">Choose Foundation Plan</a>
       </div>
-      <a href="#cta" class="plan-cta">Choose Prestige Plan</a>
+
+      <div class="plan dark fade-up">
+        <div class="plan-ribbon">Most Popular</div>
+        <div class="plan-tier">Plan 02 — Prestige</div>
+        <div class="plan-price-wrap"><span class="plan-price-sym">₹</span><span class="plan-price">30,000</span></div>
+        <p class="plan-per">Per Month · Full-Spectrum Growth</p>
+        <div class="plan-rule"></div>
+        <p class="plan-section">Video Production — Enhanced</p>
+        <ul class="plan-list">
+          <li>4 Professional Brand Videos — 1 cinematic brand film (60–90s), 2 product showcase reels, 1 testimonial/BTS video.</li>
+          <li>+ 2 AI-Generated Cinematic Videos — stone space fly-throughs, product motion graphics, branded music.</li>
+          <li>Colour graded to Solid Poetry™ palette — warm stone, deep shadow, golden hour.</li>
+        </ul>
+        <p class="plan-section">AI Visual Content — Premium</p>
+        <ul class="plan-list">
+          <li>20 Premium AI Product Images across all categories — wall art, tables, basins.</li>
+          <li>Architectural lifestyle renders: high-end hotels, luxury villas, boutique spas.</li>
+          <li>Complete Brand Style Guide — visual identity framework for all channels.</li>
+        </ul>
+        <p class="plan-section">Social Media Management — Full Suite</p>
+        <ul class="plan-list">
+          <li>Full Instagram, Facebook &amp; Pinterest management — 28+ posts per month.</li>
+          <li>Editorial content calendar with product launches, campaigns &amp; seasonal themes.</li>
+          <li>Influencer outreach strategy — 3–5 architecture/design influencers identified monthly.</li>
+          <li>Story, Reel, Carousel planning + engagement growth strategy.</li>
+        </ul>
+        <p class="plan-section">Google My Business — Full Setup</p>
+        <ul class="plan-list">
+          <li>Complete GMB profile setup/optimization — photos, services, map optimization.</li>
+          <li>Monthly GMB posts + Google review management strategy.</li>
+          <li>Local SEO: rank for "stone furniture near me" / "stone basin supplier" searches.</li>
+        </ul>
+        <p class="plan-section">Meta Ads — Full Creative Suite</p>
+        <ul class="plan-list">
+          <li>3 Active Campaigns — lead gen, retargeting &amp; brand reach.</li>
+          <li>3 unique ad sets with 2–3 creative variants each. Lookalike audiences from past enquiries.</li>
+          <li>Monthly detailed ad report with insights &amp; next-month recommendations.</li>
+        </ul>
+        <p class="plan-section">Monthly Competitor Intelligence</p>
+        <ul class="plan-list">
+          <li>Full monthly competitor report: all 3 rivals + any new entrants tracked.</li>
+          <li>Track posting frequency, engagement, ad activity, new product launches.</li>
+          <li>Strategic recommendations to stay 3 steps ahead at all times.</li>
+        </ul>
+        <p class="plan-section">Monthly Report + Strategy Call</p>
+        <ul class="plan-list">
+          <li>Full analytics: reach, engagement, follower growth, ROAS, GMB views, enquiry count.</li>
+          <li>30-minute strategy call with your dedicated account manager every single month.</li>
+        </ul>
+        <div class="plan-note">✦ The complete growth engine. For brands ready to lead their category — content, paid media, local SEO, competitor intelligence and brand storytelling unified into one monthly powerhouse.</div>
+        <a href="#cta" class="plan-btn">Choose Prestige Plan</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PLAN COMPARISON TABLE -->
-<section class="compare" id="compare" style="background:#f7f4f0;">
-  <div style="max-width:1000px;margin:0 auto;">
-    <p class="section-label">Side by Side</p>
-    <h2 class="section-title" style="color:var(--text-dark);">Plan <em>Comparison</em></h2>
-    <p style="margin-top:16px;font-size:13px;color:var(--text-mid);font-weight:300;line-height:2;max-width:520px;">Everything you get, laid out clearly — so you can choose the plan that matches where Solid Poetry™ is headed.</p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Deliverable</th>
-          <th>Foundation ₹20K/mo</th>
-          <th class="gold">Prestige ₹30K/mo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Professional Videos</td><td>3 Videos</td><td><strong>4 Videos + 2 AI Videos</strong></td></tr>
-        <tr><td>AI Generated Images</td><td>15 Images</td><td><strong>20 Images + Lifestyle Renders</strong></td></tr>
-        <tr><td>Social Media Posts/Month</td><td>20 Posts</td><td><strong>28+ Posts</strong></td></tr>
-        <tr><td>Meta Ad Campaigns</td><td>2 Campaigns</td><td><strong>3 Campaigns + Retargeting</strong></td></tr>
-        <tr><td>Ad Creative Variants</td><td>2 Variants</td><td><strong>6–9 Variants (A/B Testing)</strong></td></tr>
-        <tr><td>Google My Business</td><td><span class="cross">Not Included</span></td><td><strong><span class="check">Full Setup + Monthly Mgmt</span></strong></td></tr>
-        <tr><td>Pinterest Management</td><td><span class="cross">Not Included</span></td><td><strong><span class="check">Included</span></strong></td></tr>
-        <tr><td>Influencer Outreach Strategy</td><td><span class="cross">Not Included</span></td><td><strong><span class="check">3–5 Influencers/Month</span></strong></td></tr>
-        <tr><td>Competitor Analysis Report</td><td><span class="cross">Not Included</span></td><td><strong><span class="check">Monthly Full Report</span></strong></td></tr>
-        <tr><td>Monthly Performance Report</td><td>Basic Summary</td><td><strong>Full Analytics + Strategy Call</strong></td></tr>
-        <tr><td>Brand Style Guide</td><td><span class="cross">Not Included</span></td><td><strong><span class="check">Full Visual Identity Guide</span></strong></td></tr>
-        <tr><td>Community Management</td><td><span class="check">Included</span></td><td><strong><span class="check">Included + Priority</span></strong></td></tr>
-        <tr style="background:rgba(184,151,74,0.06);font-weight:700;">
-          <td style="color:var(--text-dark);font-weight:700;">Monthly Investment</td>
-          <td style="color:var(--text-dark);font-size:18px;font-family:'Cormorant Garamond',serif;font-weight:600;">₹20,000</td>
-          <td style="color:var(--gold);font-size:18px;font-family:'Cormorant Garamond',serif;font-weight:600;">₹30,000</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="margin-top:20px;font-size:11px;color:var(--warm-gray);letter-spacing:1px;">* Prices are exclusive of Meta/Instagram ad spend budget. Ad budget recommended separately: ₹5,000–₹15,000/month depending on goals.</p>
+<!-- PRICE COMPARISON -->
+<section class="section price-compare" id="pricing">
+  <div class="section-inner">
+    <div class="pc-head fade-up">
+      <p class="eyebrow">Side by Side</p>
+      <h2>Full Plan <em>Comparison</em></h2>
+      <p>Every deliverable in both plans laid out clearly — so you can choose with complete confidence. No hidden fees, no surprises, no ambiguity.</p>
+    </div>
+    <div class="pc-table-wrap fade-up">
+      <table class="pc-table">
+        <thead>
+          <tr>
+            <th style="width:42%">Deliverable</th>
+            <th>Foundation — ₹20K / mo</th>
+            <th class="pc-th-gold">Prestige — ₹30K / mo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Professional Brand Videos</td><td>3 Videos</td><td><strong>4 Videos + 2 AI Cinematic Videos</strong></td></tr>
+          <tr><td>AI-Generated Product Images</td><td>15 Images</td><td><strong>20 Images + Lifestyle Renders</strong></td></tr>
+          <tr><td>Social Media Posts / Month</td><td>20 Posts</td><td><strong>28+ Posts</strong></td></tr>
+          <tr><td>Platforms Managed</td><td>Instagram + Facebook</td><td><strong>Instagram + Facebook + Pinterest</strong></td></tr>
+          <tr><td>Meta Ad Campaigns</td><td>2 Campaigns</td><td><strong>3 Campaigns + Retargeting</strong></td></tr>
+          <tr><td>Ad Creative Variants</td><td>2 Variants</td><td><strong>6–9 Variants (A/B Tested)</strong></td></tr>
+          <tr><td>Lookalike Audience Building</td><td><span class="pc-xx">—</span></td><td><span class="pc-ck">✓ Included</span></td></tr>
+          <tr><td>Google My Business Setup</td><td><span class="pc-xx">—</span></td><td><span class="pc-ck">✓ Full Setup + Monthly Mgmt</span></td></tr>
+          <tr><td>Local SEO Optimization</td><td><span class="pc-xx">—</span></td><td><span class="pc-ck">✓ Included</span></td></tr>
+          <tr><td>Influencer Outreach Strategy</td><td><span class="pc-xx">—</span></td><td><span class="pc-ck">✓ 3–5 Influencers/Month</span></td></tr>
+          <tr><td>Monthly Competitor Analysis</td><td><span class="pc-xx">—</span></td><td><span class="pc-ck">✓ Full Intelligence Report</span></td></tr>
+          <tr><td>Brand Style Guide</td><td><span class="pc-xx">—</span></td><td><span class="pc-ck">✓ Complete Visual Identity Guide</span></td></tr>
+          <tr><td>Monthly Performance Report</td><td>Basic Analytics Summary</td><td><strong>Full Analytics + Strategy Call (30 min)</strong></td></tr>
+          <tr><td>Community Management</td><td><span class="pc-ck">✓ Included</span></td><td><span class="pc-ck">✓ Included + Priority Response</span></td></tr>
+          <tr class="pc-total">
+            <td><strong>Monthly Investment</strong></td>
+            <td><span class="pc-price-big">₹20,000</span></td>
+            <td><span class="pc-price-big" style="color:var(--gold2)">₹30,000</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pc-foot fade-up">* Monthly retainer pricing. Exclusive of Meta / Instagram ad spend budget. Recommended ad budget: ₹5,000–₹15,000/month depending on growth objectives and market reach goals.</p>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="cta">
-  <h2 class="cta-title">Ready to Let<br>Your Stone Speak?</h2>
-  <p class="cta-sub">Choose your plan and let's build something as enduring as the material you craft with.</p>
-  <div class="cta-buttons">
-    <a href="tel:+91XXXXXXXXXX" class="btn-primary">Book a Strategy Call</a>
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn-secondary">WhatsApp Us</a>
+<section class="cta-sec" id="cta">
+  <div class="cta-inner">
+    <p class="cta-tag">The Next Step</p>
+    <h2 class="cta-h">Ready to Let<br>Your Stone Speak?</h2>
+    <p class="cta-sub">Choose your plan and let's build something as enduring as the material you craft with. Solid Poetry™ deserves marketing that matches its permanence.</p>
+    <div class="cta-btns">
+      <a href="tel:+91XXXXXXXXXX" class="cta-btn-p">Book a Strategy Call</a>
+      <a href="https://wa.me/91XXXXXXXXXX" class="cta-btn-s">WhatsApp Us</a>
+    </div>
   </div>
-  <p style="margin-top:40px;font-size:11px;letter-spacing:2px;opacity:0.6;text-transform:uppercase;">Confidential · Prepared exclusively for Solid Poetry™ · 2025</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Solid Poetry™</div>
-  <div class="footer-copy">Marketing Proposal · Prepared 2025 · Confidential</div>
-  <div class="footer-note">All plans are monthly retainers.<br>Pricing exclusive of Meta ad spend budget.</div>
+  <div class="footer-copy">Marketing Proposal · 2025 · Confidential &amp; Exclusive</div>
+  <div class="footer-note">All prices are monthly retainers.<br>Ad spend budget billed separately.</div>
 </footer>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx - 5 + 'px';
-    cursor.style.top = my - 5 + 'px';
-  });
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx - 18 + 'px';
-    ring.style.top = ry - 18 + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
+// Cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';});
+});
 
-  // Intersection observer for fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
+// Intersection observer
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
 
-  document.querySelectorAll('.product-card, .comp-card, .why-card, .stat-box, .plan-card, .timeline-content, .strategy-block, .roi-metric').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
+// Nav scroll
+const nav=document.querySelector('nav');
+window.addEventListener('scroll',()=>{nav.style.background=window.scrollY>80?'rgba(14,13,11,.96)':'linear-gradient(to bottom,rgba(14,13,11,.92),transparent)';});
 </script>
 </body>
 </html>
